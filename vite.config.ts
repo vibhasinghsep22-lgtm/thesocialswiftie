@@ -8,8 +8,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    rollupOptions: {
-      external: [],
-    }
+    outDir: 'dist',
+    emptyOutDir: true,
   }
 })
