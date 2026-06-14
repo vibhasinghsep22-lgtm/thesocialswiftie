@@ -50,7 +50,7 @@ const getGeminiClient = (customKey?: string) => {
   });
 };
 
-// Generates beautiful premium ad graphics leveraging real Google Gemini-2.5-flash-image if present, with rock-solid Pollinations AI fallback
+// Generates beautiful premium ad graphics leveraging real Google gemini-3.1-flash-image if present, with rock-solid Pollinations AI fallback
 async function generateBackdropImage(ai: any, prompt: string, brandName?: string): Promise<string> {
   const seed = Math.floor(Math.random() * 899999) + 100000;
   const cleanPrompt = prompt.replace(/[^\w\s,\-\.]/gi, '');
@@ -64,9 +64,9 @@ async function generateBackdropImage(ai: any, prompt: string, brandName?: string
   }
 
   try {
-    console.log(`Executing real Nano-Banana image engine (gemini-2.5-flash-image) for prompt: "${cleanPrompt}"...`);
+    console.log(`Executing real Nano-Banana image engine (gemini-3.1-flash-image) for prompt: "${cleanPrompt}"...`);
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-image',
+      model: 'gemini-3.1-flash-image',
       contents: {
         parts: [
           { text: enhancedPrompt }
@@ -88,7 +88,7 @@ async function generateBackdropImage(ai: any, prompt: string, brandName?: string
         }
       }
     }
-    console.log("No inlineData returned from gemini-2.5-flash-image, using Pollinations fallback.");
+    console.log("No inlineData returned from gemini-3.1-flash-image, using Pollinations fallback.");
     return fallbackUrl;
   } catch (err) {
     console.log("Nano-Banana custom background generated using Pollinations AI aesthetic compiler.");
@@ -362,7 +362,7 @@ app.get("/api/trends", async (req, res) => {
     Be extremely accurate, creative, current, and relevant. Do not include markdown codeblocks or wrap in backticks, deliver the raw JSON string matching the exact schema.`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.5-flash",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
@@ -749,7 +749,7 @@ app.post("/api/concepts", async (req, res) => {
       Deliver exactly the requested JSON layout. Ensure no markdown formatting or backticks wrap the response.`;
 
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.5-flash",
         contents: prompt,
         config: {
           responseMimeType: "application/json",
@@ -894,7 +894,7 @@ app.post("/api/generate", async (req, res) => {
 
       try {
         const response = await ai.models.generateContent({
-          model: "gemini-3.5-flash",
+          model: "gemini-2.5-flash",
           contents: promptMsg,
           config: {
             responseMimeType: "application/json",
@@ -1071,7 +1071,7 @@ app.post("/api/generate", async (req, res) => {
 
     try {
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.5-flash",
         contents: prompt,
         config: {
           responseMimeType: "application/json",
