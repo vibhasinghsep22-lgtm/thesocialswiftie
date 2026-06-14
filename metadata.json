@@ -1,0 +1,6 @@
+{
+  "name": "TheSwiftieProject",
+  "description": "Moment marketing template generator tool developed by Toaster agency. Scan hot internet trends, select your brand profile, and render highly polished, editable moment marketing post templates with Google Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
